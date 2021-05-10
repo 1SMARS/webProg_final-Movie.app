@@ -1,0 +1,44 @@
+<div th:fragment="navbar">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-lg navbar-light bg-white shadow-sm mb-3">
+            <div class="container py-3">
+                <a class="navbar-brand" href="#">Movie</a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsibleNavbar" style="">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" id="activeItem" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-5" href="/film-add">Add film</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/films">films</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-5" href="/about">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" th:inline="text"><img src="https://lh3.googleusercontent.com/g8ZMTF8IpalhSmrE_izQZdvYkRL3SITPbqrygl3u9Gl25ysvQeD-gb2kqxFvU_0Xznl-BO7NEmDjztr0RJd-R1cW9au9Ey1PqaK1NAaaHjcnfrhtVRj0gQqn7EVU9K_TzUq8Y54RXErkChMWEC9WJ3FxL_U-Rtnr9lTCg0NHDQYCDAj0igxcQAMAA6Nx6x_RVA0_xc4UqUDkxlM5Nbdrkgtqg6mxGCb-vCY7gtzkt-FH4lbGpaLRLOuAWMKOiHmm07V-cn-9M3d-HxVZIb_V9wR-mvLpuj11kDx6AIox9TIv6kLGJdyRpfA4Wlej4l5x134B2Y0kvTZYr1CyQfhe-3h9BufpImCUNiR1B1tGXfK45PvhKlXerG1Wglkcf4zqETPjQXxF_ItSlV519pD0EUCaFJQ_Ea7-s9cwRHd2CE8cEwqNMyKsDDPFMftdYXJNTfBV6qcnAb2fcTFsMDrJBcgpSdnhtdIVTseJUDPHJJjKPpv14Rf3rkfLCPRCzlcCvz9WC1UXTg5sYYRF6hBj8GDp0Hv1Mx9vZK6GXRxndpTZkD2SR17ETIu1r2OkuHGyrW4bWslkY0jqbSa0kWOCqLscUpT34-F_MD7M49gslV9uHOstDFK26vhjtjKjRh-3DX_2pC4iyJ7oiutBfbSjIMaczGRN3H-gxJD0M28cHxoO0PGX2u_D0GZsQ7PRqC580QK18QqcK0JTwmPznhvs-QAt=w593-h790-no?authuser=0" width="24" height="25" class="rounded-circle"> [[${#httpServletRequest.remoteUser}]]</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a href="/profile" class="nav-link">Your profile</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <form th:action="@{/logout}" method="post">
+                                        <button type="submit" class="dropdown-item">Sign out</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+

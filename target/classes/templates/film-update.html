@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <title>update film</title>
+        <style>
+            .nav-link {
+                font-size: 15px;
+                color: black;
+                font-family: "Poppins", Arial, sans-serif;
+            }
+
+            .navbar-brand {
+                color: #000;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+
+            #activeItem {
+                color: #fc7fb2;
+            }
+
+            .form-control {
+                min-height: 38px;
+                padding-left: 5px;
+                box-shadow: none !important;
+                border-width: 0 0 1px 0;
+                border-radius: 0;
+            }
+            .form-control:focus {
+                border-color: #70c5c0;
+            }
+            .form-control, .btn {
+                border-radius: 2px;
+            }
+
+            #addForm h1 {
+                font-size: 30px;
+                margin: 35px 0 25px;
+                color: #1d1c1c;
+                line-height: 1.5;
+            }
+
+            #addForm #updatebtn, #addForm #updatebtn:active {
+                font-size: 16px;
+                font-weight: bold;
+                background: #4682B4	 !important;
+                border: none;
+                border-radius: 6px;
+                margin-bottom: 20px;
+            }
+
+            #addForm #deleteBtn, #addForm #deleteBtn:active {
+                font-size: 16px;
+                font-weight: bold;
+                color: white;
+                background: #FF6347 !important;
+                border: none;
+                border-radius: 6px;
+                margin-bottom: 20px;
+            }
+
+
+            #addForm a {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            #addForm a:hover {
+                text-decoration: none;
+            }
+            #addForm form a {
+                color: #7a7a7a;
+                text-decoration: none;
+            }
+
+            .nav-item a:hover {
+                color: #fc7fb2 !important;
+                transition: .5s;
+            }
+
+        </style>
+    </head>
+    <body>
+    <header th:insert="fragment/navbar::navbar"></header>
+    <div id="addForm" class="container mt-5 col-lg-4 text-center">
+        <h1 class="display-4 font-italic">Edit film</h1>
+        <form action="#" th:action="@{/film-update}" th:object="${film}" method="post">
+
+            <div class="form-group">
+                <label for="id"></label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="ID" class="form-control">
+            </div>
+
+            <div class = "form-group">
+                <label for="name"></label>
+                <input id="name" type="text" th:field="*{name}" placeholder="film title" class="form-control">
+            </div>
+
+            <div class = "form-group">
+                <label for="genre"></label>
+                <input id="genre" type="text" th:field="*{genre}" placeholder="film genre" class="form-control">
+            </div>
+
+            <div class = "form-group">
+                <label for="releaseDate"></label>
+                <input id="releaseDate" type="text" th:field="*{releaseDate}" placeholder="release year" class="form-control">
+            </div>
+
+            <div class = "form-group">
+                <label for="url"></label>
+                <input id="url" type="url" th:field="*{url}" placeholder="film url" class="form-control">
+            </div>
+
+            <div class = "form-group">
+                <label for="description"></label>
+                <textarea id="description" th:field="*{description}" placeholder="film description" class="form-control"></textarea>
+            </div>
+
+            <div class = "form-group">
+               <input type="submit" id="updatebtn" class="btn btn-primary btn-lg btn-block" value="Update film">
+            </div>
+
+            <a th:href="@{/film-delete/{id}(id=${film.id})}" id="deleteBtn" class="btn btn-primary btn-lg btn-block">Delete</a>
+        </form>
+    </div>
+    <footer th:insert="fragment/footer::footer"></footer>
+    </body>
+</html>
